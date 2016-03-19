@@ -11,6 +11,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" >
 		<title>Mike Parda - Zillow API</title>
 		<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+                <link href="font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet">
 		<link href="css/styles.css" rel="stylesheet">
 		<link rel="icon" href="img/zillow.png" />
 		
@@ -22,8 +23,16 @@
 	<body>
 		
 		<?php include_once 'header.php' ;?>
-		
-		<h1>hello</h1>
+                
+                <?php
+                    if(isset($_GET['page'])) {
+                        $page = $_GET['page'];
+                        include($page);
+                    }
+                    else {
+                        include_once 'home.php';
+                    }	
+		?>
 		
 				
 		<?php include_once 'footer.php'; ?>
