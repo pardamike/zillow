@@ -17,7 +17,7 @@ Zillow API Key: Line 16 of 'Zillow.class.php'
 
 Simple and maybe a building block to get you started, feel free to contribute to improving it's capabilities.  pardamike@gmail.com
 
-# What exactly is in here?:
+# Credits/External Resources Used::
 
 Bootstrap 3.3.6
 <br>
@@ -28,3 +28,7 @@ jQuery Block UI
 Font Awesome 4.5
 <br>
 Bootswatch Flatly Theme
+<br>
+Google Maps
+<br>
+Zillow Web Service API
