@@ -1,8 +1,8 @@
 # Zillow + PHP Example
 
-This is a simple example of using the Zillow web service API with PHP and AJAX.  Other stuff used: Google Maps API (for autocomplete), Bootstrap (with a Bootswatch theme) to show results, and jQuery BlockUI.  
+This is a simple example of using the Zillow web service API with PHP and AJAX.  Other stuff used: Google Maps API (for autocomplete), Bootstrap (with a Bootswatch theme), Font Awesome, and jQuery BlockUI.  
 
-The primary/good stuff is in the Zillow.class.php file, if you are looking for a starting point how to connect to the Zillow web service API and start getting info back right away, check there.
+The meat of the PHP is in the Zillow.class.php file if that's what your looking for (I was when I made this), if you are looking for a starting point how to connect to the Zillow web service API and start getting info back right away, check it out.
 
 Everything you need (jQuery, Bootstrap, BlockUI, etc) comes with it, you just need a Google Maps API key and a Zillow Web Service API Key, see below for where to put them
 
@@ -12,6 +12,19 @@ http://www.zillow.com/howto/api/APIOverview.htm
 
 # Where to put your keys:
 Google Maps API Key: Line 77 of 'home.php'
+<br>
 Zillow API Key: Line 16 of 'Zillow.class.php'
 
 Simple and maybe a building block to get you started, feel free to contribute to improving it's capabilities.  pardamike@gmail.com
+
+# What exactly is in here?:
+
+Bootstrap 3.3.6
+<br>
+jQuery 2.2.2
+<br>
+jQuery Block UI
+<br>
+Font Awesome 4.5
+<br>
+Bootswatch Flatly Theme
