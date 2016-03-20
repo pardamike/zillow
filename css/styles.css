@@ -14,5 +14,18 @@ footer {
 }
 
 .zillow-img {
-    max-width: 100%;
+    max-width: 100% !important;
+}
+
+@media(min-width:993px) {
+    .modal-xl {
+        width:85% !important;
+    }
+}
+
+.smImg {
+    cursor: pointer;
+    margin: 8px;
+    max-width: 70px;
+    width: 100%;
 }

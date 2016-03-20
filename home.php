@@ -74,6 +74,6 @@
 
 <!-- Google Maps Places API -->
 <!-- You will need to put your API key into here -->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAczVFKLQ7gty3FV-XQHeNH451cMNjWzPI&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={YOUR-API-Key-HERE}&libraries=places&callback=initAutocomplete" async defer></script>
 
 <?php include_once '_infoModal.php'; ?>

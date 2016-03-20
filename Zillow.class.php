@@ -13,8 +13,8 @@ class Zillow {
 
     // Constructor (not used, placeholder)
     function __construct($zpid=null) {	
-        $this->zillow_key = '{YOUR KEY HERE}';
-        $this->searchEndpoint = 'GetSearchResults.htm';
+        $this->zillow_key = 'YOUR-KEY-HERE';
+        $this->searchEndpoint = 'GetDeepSearchResults.htm';
         $this->chartEndpoint = 'GetChart.htm';
         $this->detailsEndpoint = 'GetUpdatedPropertyDetails.htm';
         $this->zpid = $zpid;
@@ -65,28 +65,30 @@ class Zillow {
         // Cut down to the meat...nested in 3 arrays (thanks XML)
         $info = $results['response']['results']['result'];
         
-        // Set the class ZPID
-        $this->zpid = $info['zpid'];
-        
+        // Set the class ZPID...just make sure we got one first!
+        if(isset($info['zpid'])) {
+            $this->zpid = $info['zpid'];
+        } else {
+            return false;
+        }
+
         // New object so we can grab what we want and nicely format it so it will be easy to work with client side
+        // die out $info to see everything that comes...be forwarned there is stuff missing depending
+        // on the city and state...I kept just the basics here, you can use everything just make sure to check if its there
         $this->returnInfo->zpid = $info['zpid'];
         $this->returnInfo->fullAddress = $results['request']['address'].' '.$results['request']['citystatezip'];
         $this->returnInfo->lat = $info['address']['latitude'];
         $this->returnInfo->lon = $info['address']['longitude'];
         $this->returnInfo->zestimate = $info['zestimate']['amount'];
         $this->returnInfo->ZestimateDate = $info['zestimate']['last-updated'];
-        $this->returnInfo->area = $info['localRealEstate']['region']['@attributes']['name'];
-        $this->returnInfo->areaAvg = $info['localRealEstate']['region']['zindexValue'];
         $this->returnInfo->link = $info['links']['homedetails'];
+        $this->returnInfo->built = $info['yearBuilt'];
+        $this->returnInfo->bathrooms = $info['bathrooms'];
+        $this->returnInfo->bedrooms = $info['bedrooms'];
+        $this->returnInfo->sqft = $info['finishedSqFt'];
         
         // Get a chart...why not?
-        $requestChart = $this->getChart($this->zpid, '1year', 'dollar', '300', '600');
-        $chart = $this->checkResult($requestChart);
-        if($chart) {
-            $this->returnInfo->chart = $chart['response']['url'];
-        } else {
-            $this->returnInfo->chart = false;
-        }
+        $this->returnInfo->chart = $this->getChart($this->zpid, '1year', 'dollar', '300', '600');
         
         // Check for other stuff (images and details)
         $requestOtherInfo = $this->getImagesAndDetails($this->zpid);
@@ -107,6 +109,7 @@ class Zillow {
             $this->returnInfo->fullDetails = $otherInfo['response']['editedFacts'];
         } else {
             $this->returnInfo->fullDetails = false;
+            $this->returnInfo->images = false;
         }
         
         // Signal for the AJAX that it was a success:
@@ -118,19 +121,23 @@ class Zillow {
     
     // Get the charts from Zillow, this will return a 1, 5, or 10 year chart estimating the home value,
     // format is the format (% or $), duration is 1, 5, or 10 year, and height and width are the size in pixels
-    // If duration is not set, it will default to 1 year
-    public function getChart($zpid, $duration=null, $format, $height, $width) {
+    public function getChart($zpid, $duration, $format, $height, $width) {
         // Build the query
         $paramArray = array('unit-type' =>  $format,
                             'zpid'      =>  $zpid,
                             'width'     =>  $width,
                             'height'    =>  $height,
-                            'duration'  =>  $duration);
+                            'chartDuration'  =>  $duration);
         $query = http_build_query($paramArray);
         
         // Pass our key and the query to the curl request
         $searchResult = $this->makeRequest($this->chartEndpoint, $query);
-        return $searchResult;
+        $chart = $this->checkResult($searchResult);
+        if($chart) {
+            return $chart['response']['url'];
+        } else {
+            return false;
+        }
     }
     
     // Get images and other stuff if possible
@@ -150,6 +157,8 @@ class Zillow {
         $convert = simplexml_load_string($xml);
         $json = json_encode($convert);
         $dataArr = json_decode($json, true);
+        // If response is anything other than 0, it failed
+        // TODO: Handle the various error codes (EX: too many requests, etc)
         if($dataArr['message']['code'] != 0) {
             return false;
         } else {
