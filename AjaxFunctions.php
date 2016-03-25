@@ -7,7 +7,7 @@ if(isset($_POST['action']) && isset($_POST['data'])) {
     $Zillow = new Zillow();
     
     // Lets try not get hacked (for the most part anyway)
-    $action = $Zillow::cleanStuff($_POST['action']);
+    $action = $Zillow->cleanStuff($_POST['action']);
     $data = $_POST['data'];
     foreach($data as $key=>$value) {
         $data[$key] = $Zillow->cleanStuff($value);
