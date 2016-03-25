@@ -1,6 +1,6 @@
 # Zillow + PHP and AJAX
 
-<a href="http://mikeparda.com/zillow" target="_blank"><b>Live Demo Here</b></a>
+<a href="http://mikeparda.com/zillow" target="_blank">Live Demo Here</a>
 
 This is a simple example of using the Zillow web service API with PHP and AJAX.  Other stuff used: Google Maps API (for autocomplete), Bootstrap (with a Bootswatch theme), Font Awesome, and jQuery BlockUI.  
 
