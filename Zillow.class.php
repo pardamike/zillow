@@ -3,7 +3,7 @@
 // Zillow class for making calls to Zillow web service
 class Zillow {
     
-    // Your Zillow API Key here:
+    // Class variables - you will need to put in your Zillow Key in the constructor
     private $zillow_key; 
     private $searchEndpoint;
     private $chartEndpoint;
