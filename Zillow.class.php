@@ -13,7 +13,7 @@ class Zillow {
 
     // Constructor, set up that variables here
     function __construct($zpid=null) {	
-        $this->zillow_key = '{YOUR-API-KEY-HERE}';                        // Your web service key
+        $this->zillow_key = 'YOUR-KEY-HERE';                        // Your web service key
         $this->searchEndpoint = 'GetDeepSearchResults.htm';         // Initial search endpoint
         $this->chartEndpoint = 'GetChart.htm';                      // Chart endpoint for getting property value history
         $this->detailsEndpoint = 'GetUpdatedPropertyDetails.htm';   // Updated property details (not all properties will have this)
