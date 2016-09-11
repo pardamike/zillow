@@ -1,5 +1,4 @@
 <section id="startPage">
-    <div id="map"></div>
     <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -7,7 +6,9 @@
             </div>
         </div>
         <div class="row text-center" id="locationField">
-            <input id="autocomplete" class="form-control" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+            <div class="col-md-12">
+                <input id="autocomplete" class="form-control" placeholder="Enter your address" onFocus="geolocate()" type="text"></input>
+            </div>
         </div>
     </div>
     <hr>
@@ -74,6 +75,6 @@
 
 <!-- Google Maps Places API -->
 <!-- You will need to put your API key into here -->
-<script src="https://maps.googleapis.com/maps/api/js?key={YOUR-API-Key-HERE}&libraries=places&callback=initAutocomplete" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDYe6XChfN-N8TL5wjvLTrBnJfoqkeMOg8&libraries=places&callback=initAutocomplete" async defer></script>
 
 <?php include_once '_infoModal.php'; ?>

@@ -21,6 +21,7 @@
             // -- DOCUMENT READY ACTIONS -- //
             init:function(){
                 obj.attachEvents();
+                obj.resize(window.innerHeight - 300);
             },
             // END DOCUMENT READY ACTIONS -- //
 
@@ -40,6 +41,9 @@
                 $('#'+obj._modalID).on('hidden.bs.modal', function (e) {
                     obj.clearModal();
                 });
+                $(window).resize(function() {
+                    obj.resize(window.innerHeight - 300);
+                });
             },
             // -- END EVENT HANDLERS -- //
             
@@ -52,6 +56,9 @@
                     addressInfo[$(this).attr('name')] = $(this).val();
                 });
                 obj.zillowFindAddress(addressInfo);
+            },
+            resize:function(height) {
+                $('#startPage').css('minHeight', height);
             },
             zillowFindAddress:function(addressInfo) {
                 $.ajax({

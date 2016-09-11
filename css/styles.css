@@ -29,3 +29,18 @@ footer {
     max-width: 70px;
     width: 100%;
 }
+
+@media(max-width:768px) {
+    .blockMsg, .blockPage {
+        width: 80% !important;
+        left: 10% !important;
+    }
+}
+
+@media(max-width:992px) {
+    #zpid {
+        margin-bottom: 1em;
+        border-bottom: 1px solid #ccc;
+        padding: 1em;
+    }
+}
