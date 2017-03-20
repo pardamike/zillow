@@ -70,7 +70,7 @@
     </div>
 </section>
 
-<!-- Autocomplete script - courtesy of Google, minor modifications by me  -->
+<!-- Autocomplete script - courtesy of Google, minor modifications by me -->
 <script src="js/locationAutocomplete.js" type="text/javascript"></script>
 
 <!-- Google Maps Places API -->
