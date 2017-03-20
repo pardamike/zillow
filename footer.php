@@ -3,7 +3,7 @@
                 <br>
                 <div class="row">
                     <div class="col-md-12 text-center">
-                        Thanks to Zillow for their API.  Check their web service API out <a class="btn btn-sm btn-warning" target="_blank" href="http://www.zillow.com/howto/api/APIOverview.htm">here</a>
+                        Thanks to Zillow for their web service.  Check it out ourself <a class="btn btn-sm btn-warning" target="_blank" href="http://www.zillow.com/howto/api/APIOverview.htm">here</a>
                     </div>
                 </div>
                 <hr>
@@ -21,7 +21,7 @@
 
         <!-- Bootstraps JS -->
         <script src="bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
-        
+
         <!-- jQuery BlockUI functions -->
         <script src="js/jquery.BlockUI.js" type="text/javascript"></script>
 
@@ -43,9 +43,9 @@
             _closeModalBtnID: "closeModal",
             _modalID: "infoModal"
         });
-        globalControls.init();  
+        globalControls.init();
         $(document).ajaxStart($.blockUI).ajaxStop($.unblockUI);
         </script>
 </body>
-	
+
 </html>

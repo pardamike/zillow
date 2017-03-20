@@ -1,6 +1,6 @@
 (function($) {
     $.fn.globalControls = function(config) {
-        
+
         var obj = {
             //-- VARIABLES --///
             _checkItBtnID: "",
@@ -14,7 +14,7 @@
             _additionalInfoContainer: "",
             _closeModalBtnID: "",
             _modalID: "",
-            // -- END VARIABLES -- // 
+            // -- END VARIABLES -- //
 
 
 
@@ -46,7 +46,7 @@
                 });
             },
             // -- END EVENT HANDLERS -- //
-            
+
 
 
             // -- FUNCTIONS -- //
@@ -65,7 +65,7 @@
                     url: "AjaxFunctions.php",
                     cache: false,
                     type:"POST",
-                    data: {"data" : addressInfo, "action" : "findZPID"},        
+                    data: {"data" : addressInfo, "action" : "findZPID"},
                     error: function() {
                         alert('An error has occured :(');
                     },
@@ -84,7 +84,7 @@
                 $.each(info, function(key, val) {
                     switch (key) {
                         case 'chart':
-                            $('#'+key).attr('src',val);     
+                            $('#'+key).attr('src',val);
                             break;
                         case 'zpid':
                             $('#'+key).attr('zpid',val);
@@ -109,8 +109,8 @@
                             break;
                         default:
                             $('#'+key).html(val);
-                            break;    
-                    }        
+                            break;
+                    }
                 });
                 $('#'+obj._modalID).modal('show');
             },
@@ -120,7 +120,7 @@
                     url: "AjaxFunctions.php",
                     cache: false,
                     type:"POST",
-                    data: {"data" : data, "action" : "chart"},        
+                    data: {"data" : data, "action" : "chart"},
                     error: function() {
                         alert('An error has occured :(');
                     },
@@ -145,13 +145,13 @@
                         $('.'+obj._smImageContainerClass).prepend('<img class="smImg" src="'+imgArr[i]+'" />');
                     }
                 } else {
-                    
+
                 }
             },
             replaceMainImg:function(newSrc) {
                 $('#'+obj._mainImageID).attr('src',newSrc);
             },
-            // Lets throw in some extra stuff...
+            // Lets throw in some extra stuff, because why not...
             fillInDetails:function($details) {
                 var $info = $details[0];
                 if($info.rooms) {
@@ -172,7 +172,7 @@
                 $('.'+obj._smImageContainerClass).html('');
             }
            // END FUNCTIONS -- /
-           
+
         };
         var new_object = $.extend({},obj,config);
         $.extend(obj,config);
