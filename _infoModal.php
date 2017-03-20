@@ -33,7 +33,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6">
-                        <p class="text-success">Built: <span class="text-primary" id="built"></span></p>
+                        <p class="text-success">Year Built: <span class="text-primary" id="built"></span></p>
                     </div>
                     <div class="col-md-6">
                         <p class="text-success">Sq Feet: <span class="text-primary" id="sqft"></span></p>
@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <h4>Extra Information:</h4>
+                    <h4>Extra Information (if availiable):</h4>
                     <div class="col-md-12" id="additionalInfo"></div>
                 </div>
             </div>
