@@ -13,7 +13,7 @@ Read more about the Zillow web service API and how to get a key (its free):
 http://www.zillow.com/howto/api/APIOverview.htm
 
 # Where to put your keys:
-Google Maps API Key: Line 77 of 'home.php'
+Google Maps API Key: Line 78 of 'home.php'
 <br>
 Zillow API Key: Line 16 of 'Zillow.class.php'
 
